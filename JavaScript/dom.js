@@ -26,9 +26,24 @@
 // headerTitle.style.color="red"
 // var header=document.getElementById('main-header');
 // header.style.border='2px solid black'
-var addItem=document.getElementById('tittle');
-console.log(addItem)
-addItem.style.color='red'
-addItem.style.textDecorationStyle="italian"
-addItem.innerHTML='<b>Add Items</b>'
+// var addItem=document.getElementById('tittle');
+// console.log(addItem)
+// addItem.style.color='red'
+// addItem.style.textDecorationStyle="italian"
+// addItem.innerHTML='<b>Add Items</b>'
+
+//getElementsBYCalssName
+var items=document.getElementsByClassName('list-group-item');
+console.log(items);
+console.log(items[1]);
+items[1].textContent="Hello"
+items[1].style.fontWeigth='bold';
+items[2].style.backgroundColor='green';
+
+//gives error as getElementsByClassName return htmlCollection
+//items.style.backgroundColor='#f4f4f4';
+
+for(let i=0;i<items.length;i++){
+    items[i].style.color="yellow";
+}
 
