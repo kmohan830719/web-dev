@@ -33,17 +33,33 @@
 // addItem.innerHTML='<b>Add Items</b>'
 
 //getElementsBYCalssName
-var items=document.getElementsByClassName('list-group-item');
-console.log(items);
-console.log(items[1]);
-items[1].textContent="Hello"
-items[1].style.fontWeigth='bold';
-items[2].style.backgroundColor='green';
+
+// var items=document.getElementsByClassName('list-group-item');
+// console.log(items);
+// console.log(items[1]);
+// items[1].textContent="Hello"
+// items[1].style.fontWeigth='bold';
+// items[2].style.backgroundColor='green';
+
+// //gives error as getElementsByClassName return htmlCollection
+// //items.style.backgroundColor='#f4f4f4';
+
+// for(let i=0;i<items.length;i++){
+//     items[i].style.color="yellow";
+// }
+
+//getElementsByTagName  //it also returns the htmlCollection
+
+var li=document.getElementsByTagName('li');
+console.log(li)
+console.log(li[1]);
+li[1].textContent="Hello"
+li[1].style.fontWeigth='bold';
+li[2].style.backgroundColor='green';
 
 //gives error as getElementsByClassName return htmlCollection
 //items.style.backgroundColor='#f4f4f4';
 
-for(let i=0;i<items.length;i++){
-    items[i].style.color="yellow";
+for(let i=0;i<li.length;i++){
+    li[i].style.color="red";
 }
-
