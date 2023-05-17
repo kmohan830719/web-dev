@@ -30,16 +30,55 @@
 // console.log("Person's age = ", age)
 // console.log("Person's city = ", city)
 
-console.log(window);
-const ul=document.querySelector('.items');
 
-// ul.remove();
-// ul.lastElementChild.remove();
-ul.firstElementChild.textContent='Hello';
-ul.firstElementChild.style.background="green"; //
+const btn=document.querySelector('.btn');
 
-ul.children[1].style.background="yellow";
+btn.addEventListener('click',(e)=>{
+     e.preventDefault();
+     document.querySelector('#my-form').getElementsByClassName.background=
+     '#ccc';
+     document.querySelector('body').classList.add('bg-dark');
+});
 
-// ul.children[1].innerText='mohan';
-// ul.lastElementChild.innerHTML='<h2>hello</h2>';
+btn.addEventListener('mouseout',(e)=>{
+    e.preventDefault();
+    document.querySelector('#my-form').getElementsByClassName.background=
+    '#ccc';
+    document.querySelector('body').classList.add('bg-dark');
+});
 
+btn.addEventListener('mouseover',(e)=>{
+    e.preventDefault();
+    document.querySelector('#my-form').getElementsByClassName.background=
+    '#ccc';
+    document.querySelector('body').classList.add('bg-dark');
+});
+
+
+const myform=document.querySelector('#my-form');
+const nameInput=document.querySelector('#name');
+const emailInput=document.querySelector('#email');
+const msg=document.querySelector('.msg');
+const userList=document.querySelector('#users');
+
+myform.addEventListener('submit',onSubmit);
+
+function onSubmit(e){
+    e.preventDefault();
+
+    if(nameInput.value ==='' || emailInput===''){
+        msg.classList.add('error');
+        msg.innerHTML='please inter all fields';
+
+        setTimeout(()=>msg.remove(),2000);
+    }else{
+        const li=document.createElement('li');
+        li.appendChild(document.createTextNode(`${nameInput.value}:
+            ${emailInput.value}`));
+
+            userList.appendChild(li);
+
+            nameInput.value='';
+            emailInput.value='';
+    }
+}
