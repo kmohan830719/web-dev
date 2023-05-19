@@ -20,23 +20,49 @@ document.getElementById("submitBtn").addEventListener("click", function(event) {
 
   // Create a new <li> element
   var li = document.createElement("li");
+  li.id="list";
   li.textContent = "Name: " + name + ", Email: " + email + ", Phone: " + phone ;
   //adding a delete button
   var deleteBtn=document.createElement('button');
-  deleteBtn.id='delete';
   deleteBtn.textContent='delete';
   li.appendChild(deleteBtn);
+
+    //adding a edit button
+    var editBtn=document.createElement('button');
+    editBtn.textContent='edit';
+    li.appendChild(editBtn);
 
   // Append the <li> element to an existing <ul> element on the screen
   var ul = document.getElementById("userList");
   ul.appendChild(li);
 
-deleteBtn.addEventListener("click",function(){
+deleteBtn.addEventListener("click",function(e){
+  e.preventDefault();
   deleteUser(email);
+  li.remove();
+})
+
+editBtn.addEventListener("click",function(e){
+  e.preventDefault();
+  var userData = JSON.parse(localStorage.getItem(email));
+
+  if (userData) {
+    document.getElementById("myname").value = userData.Name;
+    document.getElementById("myemail").value = userData.Email;
+    document.getElementById("myphone").value = userData.Phone_no;
+    document.getElementById("mydate").value = userData.Date;
+    document.getElementById("mytime").value = userData.Time;
+  }
+  deleteUser(email);
+
+   // Remove the user from the UI
+   li.remove();
 })
  
 });
 
 function deleteUser(email){
   localStorage.removeItem(email);
+
+ 
 }
