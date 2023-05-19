@@ -7,11 +7,15 @@ document.getElementById("submitBtn").addEventListener("click", function(event) {
   var date=document.getElementById('mydate').value;
   var time = document.getElementById("mytime").value;
 
+  let myobj={
+    Name:name,
+    Email:email,
+    Phone_no:phone,
+    Date:date,
+    Time:time
+  }
+  let myobj_serialized=JSON.stringify(myobj);
 
-  localStorage.setItem('Name', name);
-  localStorage.setItem('Email', email);
-  localStorage.setItem('Phone no', phone);
-  localStorage.setItem('Date', date);
-  localStorage.setItem('Time', time);
+  localStorage.setItem('UserDetail',myobj_serialized );
  
 });
