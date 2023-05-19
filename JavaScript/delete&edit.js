@@ -1,10 +1,13 @@
 var form = document.getElementById('addForm');
 var itemList = document.getElementById('items');
+var filter = document.getElementById('filter');
 
 // Form submit event
 form.addEventListener('submit', addItem);
 // Delete event
 itemList.addEventListener('click', removeItem);
+// Filter event
+filter.addEventListener('keyup', filterItems);
 
 // Add item
 function addItem(e){
@@ -12,12 +15,15 @@ function addItem(e){
 
   // Get input value
   var newItem = document.getElementById('item').value;
+  var newItemDesc = document.getElementById('discription').value;
   // Create new li element
   var li = document.createElement('li');
   // Add class
   li.className = 'list-group-item';
   // Add text node with input value
   li.appendChild(document.createTextNode(newItem));
+  li.appendChild(document.createTextNode(' '));
+  li.appendChild(document.createTextNode(newItemDesc));
   // Create del button element
   var deleteBtn = document.createElement('button');
   // Add classes to del button
@@ -31,7 +37,7 @@ function addItem(e){
 
   //added an edit button for new list item
   var editButton=document.createElement('button');
-  editButton.className='btn btn-danger btn-sm float-right ';
+  editButton.className='btn btn-primary btn-sm float-right ';
   editButton.appendChild(document.createTextNode('edit'));
   li.appendChild(editButton);
 }
@@ -51,9 +57,26 @@ var li=document.querySelectorAll('ul li');
 
 for(let i=0;i<li.length;i++){
   var editButton=document.createElement('button');
-  editButton.className='btn btn-danger btn-sm float-right ';
+  editButton.className='btn btn-primary btn-sm float-right ';
   editButton.appendChild(document.createTextNode('edit'));
   li[i].appendChild(editButton);
 }
 
+// Filter Items
+function filterItems(e){
+  // convert text to lowercase
+  var text = e.target.value.toLowerCase();
+  // Get lis
+  var items = itemList.getElementsByTagName('li');
+  // Convert to an array
+  Array.from(items).forEach(function(item){
+    var itemName = item.childNodes[0].textContent;
+    var itemName2 = item.childNodes[1].textContent;
+    if(itemName.toLowerCase().indexOf(text) != -1 ||itemName2.toLowerCase().indexOf(text) != -1){
+      item.style.display = 'block';
+    } else {
+      item.style.display = 'none';
+    }
+  });
+}
 
