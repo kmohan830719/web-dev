@@ -16,6 +16,6 @@ document.getElementById("submitBtn").addEventListener("click", function(event) {
   }
   let myobj_serialized=JSON.stringify(myobj);
 
-  localStorage.setItem('UserDetail',myobj_serialized );
+  localStorage.setItem(email,myobj_serialized );
  
 });
