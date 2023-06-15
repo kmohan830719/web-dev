@@ -14,6 +14,16 @@ document.getElementById("submitBtn").addEventListener("click", function(event) {
     Date:date,
     Time:time
   }
+
+  //doing a post request to crudcrud
+  axios.post("https://crudcrud.com/api/647104e6ccd14a73a590fc94b1cde349/appointment", myobj)
+  .then((responce)=>{
+    console.log(responce);
+  })
+  .catch((err)=>{
+    console.log(err);
+  })
+
   let myobj_serialized=JSON.stringify(myobj);
 
   localStorage.setItem(email,myobj_serialized );
