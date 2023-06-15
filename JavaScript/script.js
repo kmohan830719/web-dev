@@ -16,7 +16,7 @@ document.getElementById("submitBtn").addEventListener("click", function(event) {
   }
 
   //doing a post request to crudcrud
-  axios.post("https://crudcrud.com/api/647104e6ccd14a73a590fc94b1cde349/appointment", myobj)
+  axios.post("https://crudcrud.com/api/4cfbba6ebe4242388a76a75dc00fbee5/appointment", myobj)
   .then((responce)=>{
     // console.log(responce);
     showDetails(responce.data);
@@ -36,7 +36,7 @@ document.getElementById("submitBtn").addEventListener("click", function(event) {
 
  //doing a get request
  window.addEventListener("DOMContentLoaded",()=>{
-  axios.get("https://crudcrud.com/api/647104e6ccd14a73a590fc94b1cde349/appointment")
+  axios.get("https://crudcrud.com/api/4cfbba6ebe4242388a76a75dc00fbee5/appointment")
   .then((response)=>{
     console.log(response);
     for(var i=0;i<response.data.length;i++){
@@ -48,6 +48,7 @@ document.getElementById("submitBtn").addEventListener("click", function(event) {
   })
 }) 
 
+//delete from local storage
 function deleteUser(email){
   localStorage.removeItem(email);
 }
@@ -70,8 +71,17 @@ function showDetails(obj){
    // Append the <li> element to an existing <ul> element on the screen
    var ul = document.getElementById("userList");
    ul.appendChild(li);
+
+   //to delete user from crudcrud as well as localstorage
    deleteBtn.addEventListener("click",function(e){
     e.preventDefault();
+    axios.delete("https://crudcrud.com/api/4cfbba6ebe4242388a76a75dc00fbee5/appointment/648b72dbc632b703e83047a6")
+    .then((promis)=>{
+      console.log(promis)
+    })
+    .catch((err)=>{
+      console.log(err)
+    })
     deleteUser(obj.Email);
     li.remove();
   })
