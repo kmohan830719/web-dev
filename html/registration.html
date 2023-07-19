@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration form</title>
+    <style>
+      body{
+         background: url(/img.png) no-repeat center center/cover  ;
+      }
+      *{
+         box-sizing: border-box;
+         margin: auto;
+      }
+      #myform {
+         border: 2px solid orange;
+         margin: 12px 586px;
+         padding: 7px;
+         border-radius: 10px ;
+         background-color: rgb(246 241 241);
+      }
+      .input{
+         width: 99%;
+         height: 37px;
+         margin: 2px;
+         border-radius: 6px;
+         border: 1px solid black;
+      }
+      .datetime{
+         height: 37px;
+         width: 49%;
+         margin: 6px 2px;
+         border-radius: 6px; 
+         border: 1px solid black;
+      }
+      label{
+         font-size: 20px;
+      }
+      p{
+         padding: 12px 75px
+      }
+      h1{
+         padding: 14px 268px;
+         color: orange;
+      }
+      button{
+         background-color: orange;
+         color: white;
+         font-size: 17px;
+      }
+    </style>
+</head>
+
+<body>
+      <form id="myform" action="">
+         <h1>Book a call</h1>
+         <p>Book a call slot and our representative will call you within 1hr of selectrd time.</p>
+         <hr><br>
+         <label for="myname">Name:</label><br>
+         <input class="input" type="text" id="myname"><br>
+         <label for="myemail">Email:</label><br>
+         <input class="input" type="email" id="myemail"><br>
+         <label for="myphone">Phone:</label><br>
+         <input class="input" type="number" id="myphone"><br>
+         <label for="mytime">Time for call:</label><br>
+         <input class="datetime" type="date" id="mydate"> 
+         <select class="datetime" name="time" id="mytime">
+            <option value="11.00">11.00</option>
+            <option value="11.00">12.00</option>
+            <option value="11.00">13.00</option>
+         </select><br>
+         <button class="input" type="button" id="submitBtn">GET A CALL</button>
+      </form> 
+      <script src="/script.js"></script>
+  
+</body>
+</html>
